@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating PHP with Databases</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Integrating PHP with Databases</h1>
+            <p>Learn how to connect to a database and perform operations using PHP.</p>
+        </header>
+        
+        <section>
+            <h2>Connecting to a Database</h2>
+            <p>To connect to a database, use the <code>mysqli_connect()</code> function for MySQL databases. Here’s an example:</p>
+            <pre>
+                &lt;?php
+                $host = "localhost";
+                $user = "username";
+                $password = "password";
+                $database = "dbname";
+
+                $connection = mysqli_connect($host, $user, $password, $database);
+                
+                if (!$connection) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                echo "Connected successfully";
+                ?&gt;
+            </pre>
+
+            <h2>Making SQL Queries</h2>
+            <p>SQL queries can be constructed as strings. Here’s an example of a SELECT query:</p>
+            <pre>
+                &lt;?php
+                $sql = "SELECT * FROM users";
+                ?&gt;
+            </pre>
+
+            <h2>Executing Queries</h2>
+            <p>Use the <code>mysqli_query()</code> function to execute the SQL query:</p>
+            <pre>
+                &lt;?php
+                $result = mysqli_query($connection, $sql);
+                
+                if ($result) {
+                    echo "Query executed successfully";
+                } else {
+                    echo "Error executing query: " . mysqli_error($connection);
+                }
+                ?&gt;
+            </pre>
+
+            <h2>Fetching Data Sets</h2>
+            <p>To fetch data from the executed query, use <code>mysqli_fetch_assoc()</code>:</p>
+            <pre>
+                &lt;?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "User ID: " . $row["id"] . " - Name: " . $row["name"] . "&lt;br&gt;";
+                }
+                ?&gt;
+            </pre>
+
+            <h2>Integrating Forms and Databases</h2>
+            <h3>Basic Form Submission to a Database</h3>
+            <p>To submit data from an HTML form to the database, you can do the following:</p>
+            <pre>
+                &lt;form action="insert.php" method="post"&gt;
+                    &lt;label for="name"&gt;Name:&lt;/label&gt;
+                    &lt;input type="text" id="name" name="name"&gt;
+                    &lt;input type="submit" value="Submit"&gt;
+                &lt;/form&gt;
+                &lt;?php
+                // insert.php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $name = $_POST["name"];
+                    $sql = "INSERT INTO users (name) VALUES ('$name')";
+                    mysqli_query($connection, $sql);
+                }
+                ?&gt;
+            </pre>
+
+            <h3>Editing Data with an HTML Form</h3>
+            <p>To edit existing data, retrieve the data in a form, allow user modifications, and then update the database:</p>
+            <pre>
+                &lt;?php
+                // Assume user ID is passed via GET method
+                $userId = $_GET["id"];
+                $sql = "SELECT * FROM users WHERE id = $userId";
+                $result = mysqli_query($connection, $sql);
+                $user = mysqli_fetch_assoc($result);
+                ?&gt;
+
+                &lt;form action="update.php?id=&lt;?php echo $userId; ?&gt;" method="post"&gt;
+                    &lt;label for="name"&gt;Name:&lt;/label&gt;
+                    &lt;input type="text" id="name" name="name" value="&lt;?php echo $user['name']; ?&gt;"&gt;
+                    &lt;input type="submit" value="Update"&gt;
+                &lt;/form&gt;
+
+                &lt;?php
+                // update.php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $name = $_POST["name"];
+                    $sql = "UPDATE users SET name='$name' WHERE id=$userId";
+                    mysqli_query($connection, $sql);
+                }
+                ?&gt;
+            </pre>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

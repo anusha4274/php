@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Basics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>PHP Basics</h1>
+            <p>Get started with the essentials of PHP programming.</p>
+        </header>
+        
+        <section>
+            <h2>Tokens</h2>
+            <p>Tokens are the smallest units of PHP code that have meaning. PHP recognizes different types of tokens, including:</p>
+            <ul>
+                <li><strong>Variables:</strong> Represented by a `$` sign followed by the variable name.</li>
+                <li><strong>Operators:</strong> Symbols that perform operations on variables and values.</li>
+                <li><strong>Keywords:</strong> Reserved words that have special meaning in PHP (e.g., `if`, `else`, `while`).</li>
+                <li><strong>Strings:</strong> Sequences of characters.</li>
+            </ul>
+
+            <h2>Variables</h2>
+            <p>Variables in PHP are used to store data, which can be referenced and manipulated throughout the script. Variables are declared using the `$` sign:</p>
+            <pre>
+                &lt;?php
+                $name = "John";
+                $age = 25;
+                ?&gt;
+            </pre>
+
+            <h2>Variable Scope</h2>
+            <p>Variable scope determines where a variable can be accessed within a script:</p>
+            <ul>
+                <li><strong>Global Scope:</strong> Variables declared outside any function. Accessible from anywhere in the script.</li>
+                <li><strong>Local Scope:</strong> Variables declared inside a function. Accessible only within that function.</li>
+                <li><strong>Static Scope:</strong> Local variables that maintain their value even after the function exits.</li>
+            </ul>
+
+            <h2>Constants</h2>
+            <p>Constants are like variables but cannot be changed after they are defined. They are defined using the `define()` function:</p>
+            <pre>
+                &lt;?php
+                define("SITE_NAME", "PHP Learning Hub");
+                echo SITE_NAME;
+                ?&gt;
+            </pre>
+
+            <h2>Data Types</h2>
+            <p>PHP supports several data types, which can be classified into four categories:</p>
+            <ul>
+                <li><strong>Scalar Types:</strong> <ul>
+                    <li><strong>String:</strong> A sequence of characters.</li>
+                    <li><strong>Integer:</strong> Whole numbers.</li>
+                    <li><strong>Float:</strong> Decimal numbers.</li>
+                    <li><strong>Boolean:</strong> True or false values.</li>
+                </ul></li>
+                <li><strong>Compound Types:</strong> <ul>
+                    <li><strong>Array:</strong> A collection of values.</li>
+                    <li><strong>Object:</strong> Instances of classes.</li>
+                </ul></li>
+            </ul>
+
+            <h2>Number Handling in PHP</h2>
+            <p>PHP provides various functions for handling numbers, such as:</p>
+            <ul>
+                <li><strong>abs():</strong> Returns the absolute value.</li>
+                <li><strong>round():</strong> Rounds a number to the nearest integer.</li>
+                <li><strong>rand():</strong> Generates a random integer.</li>
+                <li><strong>floor():</strong> Rounds down to the nearest integer.</li>
+                <li><strong>ceil():</strong> Rounds up to the nearest integer.</li>
+            </ul>
+
+            <h2>Operands, Operators, and Expressions</h2>
+            <p>Operands are the values on which operators act. Operators perform operations on operands. An expression is a combination of variables, constants, and operators that yields a value:</p>
+            <pre>
+                &lt;?php
+                $sum = $a + $b; // $a and $b are operands, + is the operator
+                ?&gt;
+            </pre>
+
+            <h2>Operator Precedence</h2>
+            <p>Operator precedence determines the order in which operations are performed in an expression. For example:</p>
+            <pre>
+                &lt;?php
+                $result = 10 + 20 * 5; // Result is 110, not 150
+                ?&gt;
+            </pre>
+            <p>In this case, multiplication is performed before addition.</p>
+
+            <h2>Comments</h2>
+            <p>Comments are notes in the code for clarity, which are ignored by the PHP engine. There are two types of comments in PHP:</p>
+            <ul>
+                <li><strong>Single-line Comments:</strong> Start with `//` or `#`.</li>
+                <li><strong>Multi-line Comments:</strong> Enclosed between `/*` and `*/`.</li>
+            </ul>
+
+            <h2>echo and print Statements</h2>
+            <p>The `echo` and `print` statements are used to output data to the screen:</p>
+            <pre>
+                &lt;?php
+                echo "Hello, World!";
+                print "This is PHP!";
+                ?&gt;
+            </pre>
+            <p>Both can be used interchangeably, but `echo` can take multiple parameters while `print` can only take one and returns 1.</p>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Working with Forms in PHP</h1>
+            <p>Learn how to handle HTML forms and user input in PHP.</p>
+        </header>
+        
+        <section>
+            <h2>Working with HTML Form Controls and PHP</h2>
+            <p>HTML forms allow users to submit data to the server. PHP can process this data. Here’s an example of a simple form:</p>
+            <pre>
+                &lt;form action="process.php" method="post"&gt;
+                    &lt;label for="name"&gt;Name:&lt;/label&gt;
+                    &lt;input type="text" id="name" name="name"&gt;
+                    &lt;input type="submit" value="Submit"&gt;
+                &lt;/form&gt;
+            </pre>
+
+            <h2>Superglobal Variables</h2>
+            <p>PHP provides superglobal variables that are accessible from any scope. The most commonly used superglobals for form handling are:</p>
+            <ul>
+                <li><strong>$_GET:</strong> Used to collect data sent in the URL query string.</li>
+                <li><strong>$_POST:</strong> Used to collect data submitted via HTTP POST method.</li>
+                <li><strong>$_REQUEST:</strong> Combines $_GET, $_POST, and $_COOKIE.</li>
+            </ul>
+
+            <h2>Superglobal Array</h2>
+            <p>Superglobal arrays are built-in PHP arrays that hold information about the request, session, and environment. Here’s how to access data from a form submission:</p>
+            <pre>
+                &lt;?php
+                // process.php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $name = $_POST["name"];
+                    echo "Hello, " . htmlspecialchars($name) . "!";
+                }
+                ?&gt;
+            </pre>
+
+            <h2>Importing User Input</h2>
+            <p>When a form is submitted, the data can be imported into PHP using the superglobal arrays. Here’s how it works:</p>
+            <pre>
+                &lt;form action="process.php" method="post"&gt;
+                    &lt;label for="email"&gt;Email:&lt;/label&gt;
+                    &lt;input type="email" id="email" name="email"&gt;
+                    &lt;input type="submit" value="Submit"&gt;
+                &lt;/form&gt;
+                &lt;?php
+                // process.php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $email = $_POST["email"];
+                    echo "Your email is: " . htmlspecialchars($email);
+                }
+                ?&gt;
+            </pre>
+
+            <h2>Accessing User Input</h2>
+            <p>Access user input through the superglobal arrays. Always validate and sanitize the input to prevent security vulnerabilities:</p>
+            <pre>
+                &lt;?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $name = $_POST["name"] ?? ''; // Using null coalescing operator
+                    $name = trim($name); // Remove whitespace
+                    if (!empty($name)) {
+                        echo "Welcome, " . htmlspecialchars($name) . "!";
+                    } else {
+                        echo "Name cannot be empty!";
+                    }
+                }
+                ?&gt;
+            </pre>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings in PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Strings in PHP</h1>
+            <p>Master the art of string manipulation in PHP.</p>
+        </header>
+        
+        <section>
+            <h2>String Interpolation with Curly Braces</h2>
+            <p>String interpolation allows you to embed variables within double-quoted strings. To avoid ambiguity, you can use curly braces:</p>
+            <pre>
+                &lt;?php
+                $name = "John";
+                echo "Hello, {$name}!"; // Outputs: Hello, John!
+                ?&gt;
+            </pre>
+
+            <h2>Characters and String Indexes</h2>
+            <p>Strings in PHP are indexed, allowing you to access individual characters:</p>
+            <pre>
+                &lt;?php
+                $text = "Hello";
+                echo $text[0]; // Outputs: H
+                echo $text[1]; // Outputs: e
+                ?&gt;
+            </pre>
+
+            <h2>String Operators</h2>
+            <p>PHP provides several operators for manipulating strings:</p>
+            <ul>
+                <li><strong>Concatenation Operator (.)</strong>: Used to combine two strings.</li>
+                <pre>
+                    &lt;?php
+                    $firstName = "John";
+                    $lastName = "Doe";
+                    $fullName = $firstName . " " . $lastName; // Outputs: John Doe
+                    echo $fullName;
+                    ?&gt;
+                </pre>
+                <li><strong>Concatenation Assignment Operator (.=)</strong>: Appends a string to another string.</li>
+                <pre>
+                    &lt;?php
+                    $greeting = "Hello";
+                    $greeting .= " World!"; // Outputs: Hello World!
+                    echo $greeting;
+                    ?&gt;
+                </pre>
+            </ul>
+
+            <h2>Heredoc</h2>
+            <p>The `heredoc` syntax allows you to create multi-line strings without needing to escape quotes:</p>
+            <pre>
+                &lt;?php
+                $text = &lt;&lt;&lt;EOT
+                This is a heredoc string.
+                It can span multiple lines.
+                EOT;
+                echo $text;
+                ?&gt;
+            </pre>
+
+            <h2>String Functions</h2>
+            <p>PHP offers a variety of built-in string functions. Here are a few common ones:</p>
+            <ul>
+                <li><strong>strlen():</strong> Returns the length of a string.</li>
+                <pre>
+                    &lt;?php
+                    $length = strlen("Hello"); // Outputs: 5
+                    ?&gt;
+                </pre>
+                <li><strong>strtoupper():</strong> Converts a string to uppercase.</li>
+                <pre>
+                    &lt;?php
+                    echo strtoupper("hello"); // Outputs: HELLO
+                    ?&gt;
+                </pre>
+                <li><strong>strtolower():</strong> Converts a string to lowercase.</li>
+                <pre>
+                    &lt;?php
+                    echo strtolower("HELLO"); // Outputs: hello
+                    ?&gt;
+                </pre>
+            </ul>
+
+            <h2>Formatting Strings</h2>
+            <p>To format strings, you can use the `printf()` or `sprintf()` functions:</p>
+            <pre>
+                &lt;?php
+                $name = "John";
+                $age = 25;
+                printf("%s is %d years old.", $name, $age); // Outputs: John is 25 years old.
+                ?&gt;
+            </pre>
+
+            <h2>Comparing and Searching Strings</h2>
+            <p>PHP provides functions for comparing and searching within strings:</p>
+            <ul>
+                <li><strong>strcmp():</strong> Compares two strings (case-sensitive).</li>
+                <pre>
+                    &lt;?php
+                    $result = strcmp("abc", "ABC"); // Outputs a positive number
+                    ?&gt;
+                </pre>
+                <li><strong>strstr():</strong> Finds the first occurrence of a substring.</li>
+                <pre>
+                    &lt;?php
+                    $text = "Hello World";
+                    echo strstr($text, "World"); // Outputs: World
+                    ?&gt;
+                </pre>
+                <li><strong>strpos():</strong> Finds the position of the first occurrence of a substring.</li>
+                <pre>
+                    &lt;?php
+                    $position = strpos("Hello World", "World"); // Outputs: 6
+                    ?&gt;
+                </pre>
+            </ul>
+            
+            <h2>Substrings</h2>
+            <p>To extract a substring, you can use the `substr()` function:</p>
+            <pre>
+                &lt;?php
+                $text = "Hello World";
+                echo substr($text, 0, 5); // Outputs: Hello
+                ?&gt;
+            </pre>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

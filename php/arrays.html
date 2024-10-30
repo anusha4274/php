@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Arrays in PHP</h1>
+            <p>Learn how to work with arrays, a fundamental data structure in PHP.</p>
+        </header>
+        
+        <section>
+            <h2>PHP Arrays</h2>
+            <p>Arrays are used to store multiple values in a single variable. PHP supports three types of arrays:</p>
+            <ul>
+                <li><strong>Indexed Arrays:</strong> Arrays with numeric index.</li>
+                <li><strong>Associative Arrays:</strong> Arrays with named keys.</li>
+                <li><strong>Multidimensional Arrays:</strong> Arrays containing one or more arrays.</li>
+            </ul>
+
+            <h2>Creating Arrays</h2>
+            <p>You can create an array using the array() function or the shorthand [] syntax:</p>
+            <pre>
+                &lt;?php
+                // Indexed array
+                $fruits = array("Apple", "Banana", "Cherry");
+                $colors = ["Red", "Green", "Blue"]; // Short syntax
+                ?&gt;
+            </pre>
+
+            <h2>Accessing Array Elements</h2>
+            <p>Access array elements using their index:</p>
+            <pre>
+                &lt;?php
+                echo $fruits[0]; // Outputs: Apple
+                echo $colors[1]; // Outputs: Green
+                ?&gt;
+            </pre>
+
+            <h2>Multidimensional Arrays</h2>
+            <p>Multidimensional arrays are arrays containing other arrays:</p>
+            <pre>
+                &lt;?php
+                $students = [
+                    "John" => ["age" => 25, "major" => "CS"],
+                    "Jane" => ["age" => 22, "major" => "Math"],
+                ];
+                echo $students["John"]["major"]; // Outputs: CS
+                ?&gt;
+            </pre>
+
+            <h2>Inspecting Arrays</h2>
+            <p>Use functions like print_r() or var_dump() to inspect array contents:</p>
+            <pre>
+                &lt;?php
+                print_r($fruits);
+                var_dump($students);
+                ?&gt;
+            </pre>
+
+            <h2>Deleting from Arrays</h2>
+            <p>To delete an element from an array, use the unset() function:</p>
+            <pre>
+                &lt;?php
+                unset($fruits[1]); // Removes Banana
+                print_r($fruits); // Outputs: Array ( [0] => Apple [2] => Cherry )
+                ?&gt;
+            </pre>
+
+            <h2>Iterating with each() and foreach()</h2>
+            <p>The foreach() loop is a simple way to iterate over arrays:</p>
+            <pre>
+                &lt;?php
+                foreach ($fruits as $fruit) {
+                    echo $fruit . "&lt;br&gt;"; // Outputs each fruit
+                }
+                ?&gt;
+            </pre>
+            <p>Note: The <code>each()</code> function is deprecated and not recommended for use in new code.</p>
+
+            <h2>Iterative Functions</h2>
+            <p>PHP provides several functions for manipulating array pointers:</p>
+            <ul>
+                <li><strong>current():</strong> Returns the current element in an array.</li>
+                <pre>
+                    &lt;?php
+                    echo current($fruits); // Outputs: Apple
+                    ?&gt;
+                </pre>
+                <li><strong>next():</strong> Advances the array pointer to the next element.</li>
+                <pre>
+                    &lt;?php
+                    next($fruits); // Moves to Banana
+                    echo current($fruits); // Outputs: Cherry
+                    ?&gt;
+                </pre>
+                <li><strong>prev():</strong> Moves the array pointer to the previous element.</li>
+                <pre>
+                    &lt;?php
+                    prev($fruits); // Moves back to Banana
+                    echo current($fruits); // Outputs: Banana
+                    ?&gt;
+                </pre>
+                <li><strong>reset():</strong> Moves the array pointer to the first element.</li>
+                <pre>
+                    &lt;?php
+                    reset($fruits); // Moves back to Apple
+                    echo current($fruits); // Outputs: Apple
+                    ?&gt;
+                </pre>
+                <li><strong>end():</strong> Advances the array pointer to the last element.</li>
+                <pre>
+                    &lt;?php
+                    end($fruits); // Moves to the last element
+                    echo current($fruits); // Outputs: Cherry
+                    ?&gt;
+                </pre>
+            </ul>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

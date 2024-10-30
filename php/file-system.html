@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with the File System in PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Working with the File System in PHP</h1>
+            <p>Learn how to manage files and directories using PHP.</p>
+        </header>
+        
+        <section>
+            <h2>Understanding PHP File Permissions</h2>
+            <p>File permissions dictate who can read, write, or execute a file. In PHP, you can use the <code>chmod()</code> function to change file permissions:</p>
+            <pre>
+                &lt;?php
+                chmod("example.txt", 0755); // Set permissions to read/write/execute for owner, read/execute for others
+                ?&gt;
+            </pre>
+
+            <h2>Opening and Closing a File</h2>
+            <p>Use the <code>fopen()</code> function to open a file. You can specify the mode of opening (e.g., read, write):</p>
+            <pre>
+                &lt;?php
+                $file = fopen("example.txt", "r"); // Open file for reading
+                // Always close the file after use
+                fclose($file);
+                ?&gt;
+            </pre>
+
+            <h2>File Reading and Writing Functions</h2>
+            <h3>Reading from a File</h3>
+            <p>To read from a file, you can use functions like <code>fread()</code> or <code>fgets()</code>:</p>
+            <pre>
+                &lt;?php
+                $file = fopen("example.txt", "r");
+                $content = fread($file, filesize("example.txt")); // Read entire file
+                fclose($file);
+                echo $content;
+                ?&gt;
+            </pre>
+
+            <h3>Writing to a File</h3>
+            <p>To write to a file, open it in write mode using <code>w</code> or append mode using <code>a</code>:</p>
+            <pre>
+                &lt;?php
+                $file = fopen("example.txt", "a"); // Open file for appending
+                fwrite($file, "New line of text.\n"); // Write to file
+                fclose($file);
+                ?&gt;
+            </pre>
+
+            <h2>File System and Directory Functions</h2>
+            <p>PHP provides several functions to interact with the file system:</p>
+            <h3>Creating a Directory</h3>
+            <p>You can create a directory using the <code>mkdir()</code> function:</p>
+            <pre>
+                &lt;?php
+                mkdir("new_directory"); // Create a new directory
+                ?&gt;
+            </pre>
+
+            <h3>Deleting a Directory</h3>
+            <p>To delete a directory, use the <code>rmdir()</code> function:</p>
+            <pre>
+                &lt;?php
+                rmdir("new_directory"); // Remove the directory
+                ?&gt;
+            </pre>
+
+            <h3>Checking If a File Exists</h3>
+            <p>You can check if a file exists using <code>file_exists()</code>:</p>
+            <pre>
+                &lt;?php
+                if (file_exists("example.txt")) {
+                    echo "File exists.";
+                } else {
+                    echo "File does not exist.";
+                }
+                ?&gt;
+            </pre>
+
+            <h3>Getting File Information</h3>
+            <p>Use <code>filesize()</code> to get the size of a file:</p>
+            <pre>
+                &lt;?php
+                $size = filesize("example.txt");
+                echo "File size: " . $size . " bytes.";
+                ?&gt;
+            </pre>
+
+            <h3>Listing Files in a Directory</h3>
+            <p>To list files in a directory, use the <code>scandir()</code> function:</p>
+            <pre>
+                &lt;?php
+                $files = scandir("some_directory");
+                foreach ($files as $file) {
+                    echo $file . "&lt;br&gt;";
+                }
+                ?&gt;
+            </pre>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>
