@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions in PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Functions in PHP</h1>
+            <p>Explore the power of functions to organize your code efficiently.</p>
+        </header>
+        
+        <section>
+            <h2>Function Definition</h2>
+            <p>A function is a block of code that performs a specific task. Functions help in code reusability and organization. The basic syntax of a function is:</p>
+            <pre>
+                &lt;?php
+                function functionName() {
+                    // Code to be executed
+                }
+                ?&gt;
+            </pre>
+
+            <h2>Creating and Invoking User-Defined Functions</h2>
+            <p>To create a user-defined function, define it using the syntax above and invoke it by calling its name:</p>
+            <pre>
+                &lt;?php
+                function greet() {
+                    echo "Hello, World!";
+                }
+                
+                greet(); // Calling the function
+                ?&gt;
+            </pre>
+
+            <h2>Formal Parameters vs. Actual Parameters</h2>
+            <p>Parameters are variables passed to functions. There are two types:</p>
+            <ul>
+                <li><strong>Formal Parameters:</strong> Defined in the function declaration.</li>
+                <pre>
+                    &lt;?php
+                    function add($a, $b) { // $a and $b are formal parameters
+                        return $a + $b;
+                    }
+                    ?&gt;
+                </pre>
+                <li><strong>Actual Parameters:</strong> Values passed to the function when called.</li>
+                <pre>
+                    &lt;?php
+                    $sum = add(5, 10); // 5 and 10 are actual parameters
+                    echo $sum; // Outputs 15
+                    ?&gt;
+                </pre>
+            </ul>
+
+            <h2>Function and Variable Scope</h2>
+            <p>The scope of a variable determines where it can be accessed. Variables defined inside a function have local scope, while those defined outside have global scope:</p>
+            <pre>
+                &lt;?php
+                $globalVar = "I am global"; // Global variable
+
+                function test() {
+                    $localVar = "I am local"; // Local variable
+                    echo $localVar;
+                }
+
+                test(); // Outputs "I am local"
+                echo $globalVar; // Outputs "I am global"
+                ?&gt;
+            </pre>
+
+            <h2>Recursion</h2>
+            <p>Recursion is a programming technique where a function calls itself. It's useful for solving problems that can be broken down into smaller, similar problems. Here’s an example of a recursive function to calculate the factorial of a number:</p>
+            <pre>
+                &lt;?php
+                function factorial($n) {
+                    if ($n <= 1) {
+                        return 1; // Base case
+                    } else {
+                        return $n * factorial($n - 1); // Recursive call
+                    }
+                }
+
+                echo factorial(5); // Outputs 120
+                ?&gt;
+            </pre>
+
+            <h2>Library Functions</h2>
+            <p>PHP provides a rich set of built-in functions, known as library functions, to perform various tasks. Some common library functions include:</p>
+            <ul>
+                <li><strong>strlen():</strong> Returns the length of a string.</li>
+                <li><strong>strpos():</strong> Finds the position of the first occurrence of a substring in a string.</li>
+                <li><strong>array_merge():</strong> Merges one or more arrays.</li>
+                <li><strong>date():</strong> Formats a date and time.</li>
+            </ul>
+            <p>Example of using a library function:</p>
+            <pre>
+                &lt;?php
+                $text = "Hello";
+                echo strlen($text); // Outputs 5
+                ?&gt;
+            </pre>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

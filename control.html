@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Structures in PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Control Structures in PHP</h1>
+            <p>Learn how to control the flow of your PHP programs.</p>
+        </header>
+        
+        <section>
+            <h2>Branching Statements</h2>
+            
+            <h3>if-else Statement</h3>
+            <p>The `if-else` statement allows you to execute code based on a condition:</p>
+            <pre>
+                &lt;?php
+                $age = 18;
+                if ($age >= 18) {
+                    echo "You are an adult.";
+                } else {
+                    echo "You are a minor.";
+                }
+                ?&gt;
+            </pre>
+
+            <h3>Ternary Operator</h3>
+            <p>The ternary operator is a shorthand for the `if-else` statement. It takes three operands:</p>
+            <pre>
+                &lt;?php
+                $age = 20;
+                $status = ($age >= 18) ? "Adult" : "Minor";
+                echo $status;
+                ?&gt;
+            </pre>
+
+            <h3>switch Statement</h3>
+            <p>The `switch` statement is used to execute one block of code among many based on the value of a variable:</p>
+            <pre>
+                &lt;?php
+                $day = 3;
+                switch ($day) {
+                    case 1:
+                        echo "Monday";
+                        break;
+                    case 2:
+                        echo "Tuesday";
+                        break;
+                    case 3:
+                        echo "Wednesday";
+                        break;
+                    default:
+                        echo "Invalid day";
+                }
+                ?&gt;
+            </pre>
+            
+            <h2>Looping Statements</h2>
+
+            <h3>while Loop</h3>
+            <p>The `while` loop executes a block of code as long as a specified condition is true:</p>
+            <pre>
+                &lt;?php
+                $count = 1;
+                while ($count <= 5) {
+                    echo "Count: " . $count . "&lt;br&gt;";
+                    $count++;
+                }
+                ?&gt;
+            </pre>
+
+            <h3>do-while Loop</h3>
+            <p>The `do-while` loop is similar to the `while` loop, but it guarantees that the code block will be executed at least once:</p>
+            <pre>
+                &lt;?php
+                $count = 1;
+                do {
+                    echo "Count: " . $count . "&lt;br&gt;";
+                    $count++;
+                } while ($count <= 5);
+                ?&gt;
+            </pre>
+
+            <h3>for Loop</h3>
+            <p>The `for` loop is used when the number of iterations is known beforehand:</p>
+            <pre>
+                &lt;?php
+                for ($i = 1; $i <= 5; $i++) {
+                    echo "Iteration: " . $i . "&lt;br&gt;";
+                }
+                ?&gt;
+            </pre>
+
+            <h2>File Inclusion Statements</h2>
+            <p>File inclusion allows you to include the contents of one PHP file into another, which helps in code reusability:</p>
+            <ul>
+                <li><strong>include:</strong> Includes a file and emits a warning if the file is not found.</li>
+                <pre>
+                    &lt;?php
+                    include 'header.php';
+                    ?&gt;
+                </pre>
+                <li><strong>require:</strong> Includes a file but produces a fatal error if the file is not found.</li>
+                <pre>
+                    &lt;?php
+                    require 'footer.php';
+                    ?&gt;
+                </pre>
+                <li><strong>include_once:</strong> Includes a file only once, preventing multiple inclusions.</li>
+                <li><strong>require_once:</strong> Requires a file only once, also preventing multiple inclusions.</li>
+            </ul>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>

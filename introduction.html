@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to PHP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <header>
+            <h1>Introduction to PHP</h1>
+            <p>Gain foundational knowledge to start your journey with PHP.</p>
+        </header>
+        
+        <section>
+            <h2>Client-Side Scripting vs. Server-Side Scripting</h2>
+            <p>In web development, scripting can be done on both the client side and the server side. Client-side scripting is executed on the user’s browser, making it suitable for handling things like form validations, animations, and dynamic content updates without reloading the page. JavaScript is the most common client-side scripting language.</p>
+            <p>Server-side scripting, on the other hand, is executed on the server before the content is sent to the user’s browser. PHP is a server-side scripting language, which means it can generate dynamic content, interact with databases, and manage user sessions securely, delivering customized content to users based on server processing.</p>
+
+            <h2>Understanding Web Servers: Local Servers and Remote Servers</h2>
+            <p>A web server is software that serves web content to users when they request it through their browsers. Web servers can be local (running on your computer) or remote (hosted on an internet-connected server).</p>
+            <p><strong>Local Servers:</strong> A local server, like the WAMP server, allows developers to test and run web applications on their computer before deploying them online. This helps in development and debugging without needing internet access.</p>
+            <p><strong>Remote Servers:</strong> A remote server is hosted on the internet, making the application accessible to the public. Web hosting companies provide remote servers to store and manage website files and databases, making the site available globally.</p>
+
+            <h2>Installing WAMP and Configuring PHP Environment</h2>
+            <p>WAMP (Windows, Apache, MySQL, PHP) is a popular software stack used to create a local server environment on Windows. To start working with PHP, you’ll need to install WAMP on your computer, which includes Apache (the server), MySQL (the database), and PHP (the scripting language).</p>
+            <ol>
+                <li>Download the WAMP installer from the official website.</li>
+                <li>Run the installer and follow the prompts to install WAMP.</li>
+                <li>After installation, launch WAMP and make sure the services are running (you'll see a green icon in the system tray if everything is set up correctly).</li>
+            </ol>
+            <p>With WAMP running, you can now create and test PHP files on your local server by placing them in the "www" folder within the WAMP directory.</p>
+
+            <h2>Static Website vs. Dynamic Website Development</h2>
+            <p>Websites can be categorized as static or dynamic. Static websites consist of fixed content, usually written in HTML, CSS, and client-side JavaScript. These pages do not change based on user interaction; instead, they display the same content to every visitor.</p>
+            <p>Dynamic websites, powered by server-side scripting languages like PHP, can generate unique content for each user based on their interactions, preferences, or data in a database. Dynamic websites are more flexible and allow for user accounts, databases, and interactive content.</p>
+
+            <h2>Embedding PHP Code in Web Pages</h2>
+            <p>PHP code can be embedded within HTML pages to create dynamic content. To embed PHP in a web page, PHP tags are used to indicate PHP code within an HTML file:</p>
+            <pre>
+                &lt;?php
+                echo "Hello, PHP!";
+                ?&gt;
+            </pre>
+            <p>This code snippet will output "Hello, PHP!" wherever it’s placed within the HTML. PHP tags allow you to add functionality like displaying the current date, processing form data, or generating HTML dynamically.</p>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 PHP Learning Hub</p>
+        </footer>
+    </div>
+</body>
+</html>
